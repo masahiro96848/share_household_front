@@ -6,5 +6,5 @@
     "arrowParens": "always",
     "tabWidth": 4,
     "printWidth": 100,
-    "useTabs": false
+    "useTabs": true
 }

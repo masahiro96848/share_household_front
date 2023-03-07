@@ -9,6 +9,8 @@ NC='\033[0m'
 
 echo "\n 🚧🏗️  ${BOLD}Checking format, lint and types in your project before committing${NC}"
 
+npm run format
+
 # Check Prettier standards
 npm run check-format ||
 (

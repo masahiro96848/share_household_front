@@ -22,7 +22,7 @@ jobs:
 
               # ライブラリをinstall
             - name: Install Dependencies
-              run: npm run install
+              run: npm install
 
               # lint実行
             - name: Static Analytics

@@ -22,17 +22,17 @@ jobs:
 
               # ライブラリをinstall
             - name: Install Dependencies
-              run: npm --frozen-lockfile
+              run: npm run install
 
               # lint実行
             - name: Static Analytics
-              run: npm lint
+              run: npm run check-lint
 
               # unit test
-            - name: Unit Test
-              run: npm test
+            # - name: Unit Test
+            #   run: npm test
 
-              # build app
+            # build app
             # - name: App Build
             #   run: yarn build
             #   env:

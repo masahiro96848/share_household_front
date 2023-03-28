@@ -1,48 +1,48 @@
 name: Node.js CI
 
 on:
-    pull_request:
-        branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-        strategy:
-            matrix:
-                node-version: [18]
+    strategy:
+      matrix:
+        node-version: [18]
 
-        steps:
-            - uses: actions/checkout@v3
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ matrix.node-version }}
-                  cache: npm
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
 
-              # ライブラリをinstall
-            - name: Install Dependencies
-              run: npm install
+        # ライブラリをinstall
+      - name: Install Dependencies
+        run: npm install
 
-              # lint実行
-            - name: Static Analytics
-              run: npm run check-lint
+        # lint実行
+      - name: Static Analytics
+        run: npm run check-lint
 
-              # unit test
-            # - name: Unit Test
-            #   run: npm test
+        # unit test
+      # - name: Unit Test
+      #   run: npm test
 
-            # build app
-            # - name: App Build
-            #   run: yarn build
-            #   env:
-            #     X_API_KEY: ${{ secrets.X_API_KEY }}
-            #     NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
-            #     NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID }}
-            #     NEXT_PUBLIC_BLOG_SHOW_COUNT: ${{ secrets.NEXT_PUBLIC_BLOG_SHOW_COUNT }}
+      # build app
+      # - name: App Build
+      #   run: yarn build
+      #   env:
+      #     X_API_KEY: ${{ secrets.X_API_KEY }}
+      #     NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
+      #     NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID }}
+      #     NEXT_PUBLIC_BLOG_SHOW_COUNT: ${{ secrets.NEXT_PUBLIC_BLOG_SHOW_COUNT }}
 
-            # # e2e test
-            # - name: E2E Test
-            #   uses: cypress-io/github-action@v2
-            #   with:
-            #     start: yarn start
+      # # e2e test
+      # - name: E2E Test
+      #   uses: cypress-io/github-action@v2
+      #   with:
+      #     start: yarn start

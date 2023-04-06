@@ -1,38 +1,33 @@
 {
-    "root": true,
-    "env": {
-        "browser": true,
-        "node": true
-    },
-    "settings": {
-        "react": {
-            "version": "detect"
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:import/recommended",
+    "plugin:import/warnings",
+    "prettier"
+  ],
+  "rules": {
+    // "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "order": "asc"
         }
-    },
-    "plugins": ["prettier"],
-    "extends": [
-        "next/core-web-vitals",
-        "plugin:prettier/recommended",
-        "plugin:react/recommended",
-        "prettier"
-        // "plugin:storybook/recommended"
+      }
     ],
-    "rules": {
-        "no-console": ["warn", { "allow": ["warn", "error"] }],
-        "sort-imports": "off",
-        "import/order": ["error", { "alphabetize": { "order": "asc" } }],
-        "import/no-named-as-default-member": "off",
-        "camelcase": ["error", { "properties": "never" }],
-        "prettier/prettier": "error",
-        "@typescript-eslint/no-var-requires": 0,
-        "react/react-in-jsx-scope": "off",
-        "react/jsx-filename-extension": [
-            0,
-            {
-                "extensions": [".ts", ".tsx", ".js", ".jsx"]
-            }
-        ],
-        "@typescript-eslint/camelcase": 0,
-        "@typescript-eslint/no-explicit-any": 0
-    }
+    "react/jsx-filename-extension": [
+      0,
+      {
+        "extensions": [".ts", ".tsx", ".js", ".jsx"]
+      }
+    ],
+    "@typescript-eslint/camelcase": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "import/no-unresolved": "off"
+  }
 }

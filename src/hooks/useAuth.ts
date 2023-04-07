@@ -30,8 +30,8 @@ export const useAuth = () => {
    */
   const isExitBeforeAuthPage = useCallback(() => {
     return (
-      router.pathname === NAVIGATION_PATH.SIGNIN ||
-      router.pathname === NAVIGATION_PATH.SIGNUP
+      router.pathname === NAVIGATION_PATH.LOGIN ||
+      router.pathname === NAVIGATION_PATH.REGISTER
     )
   }, [router.pathname])
 
@@ -47,7 +47,7 @@ export const useAuth = () => {
       auth = true
     }
     // 未ログインでログイン後のページにいる場合、ログイン画面にリダイレクト
-    if (!auth && !isExitBeforeAuthPage()) router.push(NAVIGATION_LIST.SIGNIN)
+    if (!auth && !isExitBeforeAuthPage()) router.push(NAVIGATION_LIST.LOGIN)
     // ログイン済で未ログインのページにいる場合、Todo一覧ページにリダイレクト
     if (auth && isExitBeforeAuthPage()) router.push(NAVIGATION_LIST.DASHBOARD)
   }, [isExitBeforeAuthPage, router])

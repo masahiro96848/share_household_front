@@ -10,8 +10,8 @@
  */
 export const NAVIGATION_LIST = {
   DASHBOARD: '/dashboard',
-  SIGNIN: '/login',
-  SIGNUP: '/register',
+  LOGIN: '/login',
+  REGISTER: '/register',
 }
 
 /**
@@ -20,6 +20,6 @@ export const NAVIGATION_LIST = {
  */
 export const NAVIGATION_PATH = {
   DASHBOARD: '/dashboard',
-  SIGNIN: '/login',
-  SIGNUP: '/register',
+  LOGIN: '/login',
+  REGISTER: '/register',
 }

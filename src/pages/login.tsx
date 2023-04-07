@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
-import { SignInTemplate } from '@/components/SignInTemplate/index'
+import { LoginTemplate } from '@/components/LoginTemplate/index'
 
-const SignInPage: NextPage = () => <SignInTemplate />
+const LoginPage: NextPage = () => <LoginTemplate />
 
-export default SignInPage
+export default LoginPage

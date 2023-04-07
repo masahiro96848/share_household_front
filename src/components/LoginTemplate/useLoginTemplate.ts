@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router'
 import { useState, useCallback } from 'react'
-import { signInApi } from '@/api/authApi'
+import { loginApi } from '@/api/authApi'
 import { NAVIGATION_PATH } from '@/constants/navigation'
 import { EventType } from '@/interfaces/Event'
 import { UserType } from '@/interfaces/User'
 
 type Params = {
-  signIn: (user: UserType) => Promise<void>
+  login: (user: UserType) => Promise<void>
 }
 
 type StatesType = {
@@ -20,7 +20,7 @@ type ActionsType = {
   handleLogin: EventType['onSubmit']
 }
 
-export const useSignInTemplate = ({ signIn }: Params) => {
+export const useLoginTemplate = ({ login }: Params) => {
   const router = useRouter()
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
@@ -47,18 +47,18 @@ export const useSignInTemplate = ({ signIn }: Params) => {
   const handleLogin: EventType['onSubmit'] = useCallback(
     async (event) => {
       event.preventDefault()
-      const res = await signInApi(email, password)
+      const res = await loginApi(email, password)
 
       if (res?.code === 401) {
         return
       }
       if (res?.data?.user) {
-        signIn(res.data.user)
+        login(res.data.user)
         localStorage.setItem('access_token', res.data.accessToken)
         router.push(NAVIGATION_PATH.DASHBOARD)
       }
     },
-    [email, password, signIn, router],
+    [email, password, login, router],
   )
 
   const states: StatesType = {

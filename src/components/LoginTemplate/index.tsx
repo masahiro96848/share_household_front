@@ -9,16 +9,16 @@ import {
 import Link from 'next/link'
 import { FC } from 'react'
 import { Layout } from '../Layout'
-import { useSignInTemplate } from './useSignInTemplate'
+import { useLoginTemplate } from './useLoginTemplate'
 import { NAVIGATION_LIST } from '@/constants/navigation'
 import { useAuthContext } from '@/contexts/AuthContext'
 
-export const SignInTemplate: FC = () => {
-  const { signIn } = useAuthContext()
+export const LoginTemplate: FC = () => {
+  const { login } = useAuthContext()
   const [
     { email, password },
     { handleChangeEmail, handleChangePassword, handleLogin },
-  ] = useSignInTemplate({ signIn })
+  ] = useLoginTemplate({ login })
 
   return (
     <Layout title="auth">

@@ -12,7 +12,7 @@ import { AuthResponseType } from '@/interfaces/User'
  * @param password
  * @returns
  */
-export const signInApi = async (email: string, password: string) => {
+export const loginApi = async (email: string, password: string) => {
   try {
     const { data }: AxiosResponse<AuthResponseType> = await globalAxios.post(
       'auth/login',

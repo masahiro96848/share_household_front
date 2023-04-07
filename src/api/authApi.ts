@@ -47,14 +47,14 @@ export const loginApi = async (email: string, password: string) => {
  * @param password
  * @returns
  */
-export const signUpApi = async (
+export const registerApi = async (
   nickname: string,
   email: string,
   password: string,
 ) => {
   try {
     const { data }: AxiosResponse<AuthResponseType> = await globalAxios.post(
-      'auth/signup',
+      'auth/register',
       {
         nickname,
         email,

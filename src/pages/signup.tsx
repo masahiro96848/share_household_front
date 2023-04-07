@@ -13,7 +13,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import * as Yup from 'yup'
 import { Layout } from '@/components/Layout'
-import { SignUpForm } from '@/types/auth'
+import { RegisterForm } from '@/types/auth'
 
 /**
  * バリデーションのロジック
@@ -25,10 +25,10 @@ const schema = Yup.object().shape({
     .min(5, 'Password should be min 5 chars'),
 })
 
-const Signup: NextPage = () => {
+const Register: NextPage = () => {
   const router = useRouter()
   const [error, setError] = useState('')
-  const form = useForm<SignUpForm>({
+  const form = useForm<RegisterForm>({
     validate: yupResolver(schema),
     initialValues: {
       nickname: '',
@@ -39,7 +39,7 @@ const Signup: NextPage = () => {
 
   const handleSubmit = async () => {
     try {
-      await axios.post(`${process.env.BASE_API_URL}/api/auth/signup`, {
+      await axios.post(`${process.env.BASE_API_URL}/api/auth/register`, {
         nickname: form.values.nickname,
         email: form.values.email,
         password: form.values.password,
@@ -81,4 +81,4 @@ const Signup: NextPage = () => {
   )
 }
 
-export default Signup
+export default Register

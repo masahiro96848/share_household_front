@@ -11,7 +11,7 @@
 export const NAVIGATION_LIST = {
   DASHBOARD: '/dashboard',
   SIGNIN: '/login',
-  SIGNUP: '/signup',
+  SIGNUP: '/register',
 }
 
 /**
@@ -21,5 +21,5 @@ export const NAVIGATION_LIST = {
 export const NAVIGATION_PATH = {
   DASHBOARD: '/dashboard',
   SIGNIN: '/login',
-  SIGNUP: '/signup',
+  SIGNUP: '/register',
 }

@@ -12,14 +12,14 @@ const nextConfig = {
     // styledComponentsの有効化
     styledComponents: true,
   },
-  webpackDevMiddleware: (config) => {
-    config.watchOptions = {
-      poll: 1000, // 1秒ごとにファイルをポーリングする
-      aggregateTimeout: 200, // 変更があってから300ミリ秒待つ
-    }
+  // webpackDevMiddleware: (config) => {
+  //   config.watchOptions = {
+  //     poll: 1000, // 1秒ごとにファイルをポーリングする
+  //     aggregateTimeout: 200, // 変更があってから300ミリ秒待つ
+  //   }
 
-    return config
-  },
+  //   return config
+  // },
 }
 
 module.exports = nextConfig

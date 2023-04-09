@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { LoginTemplate } from '@/components/LoginTemplate/index'
+import { LoginTemplate } from '@/components/templates/LoginTemplate'
 
 const LoginPage: NextPage = () => <LoginTemplate />
 

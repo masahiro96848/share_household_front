@@ -8,7 +8,7 @@ type Props = {
   onChange: (e: any) => void
 }
 
-export const InputText: FC<Props> = ({ type, value, length, onChange }) => {
+export const InputForm: FC<Props> = ({ type, value, length, onChange }) => {
   const maxLen = length ? length : 255
   return (
     <Input
@@ -25,6 +25,6 @@ const Input = styled.input`
   font-size: 1rem;
   border-radius: 20px;
   border: 0;
-  width: 100%;
+  width: 60%;
   font-size: 24px;
 `

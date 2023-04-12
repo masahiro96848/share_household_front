@@ -24,4 +24,5 @@ export interface EventType {
   onSubmit: (event: FormEvent<HTMLFormElement>) => void
   onSubmitButton: (event: FormEvent<HTMLButtonElement>) => void
   onClickDiv: (event: MouseEvent<HTMLDivElement, MouseEvent>) => void
+  labelStatus: string
 }

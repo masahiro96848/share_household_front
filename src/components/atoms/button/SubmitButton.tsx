@@ -1,24 +1,27 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
 import { EventType } from '@/interfaces/Event'
+import { getLabelName } from '@/utils/buttonLabel'
 
-type Props = {
-  size?: string
+export type Props = {
+  labelStatus: string
   disabled?: boolean
   submit: EventType['onSubmit']
 }
 
-export const SubmitButton: FC<Props> = ({ submit, disabled }) => {
+export const SubmitButton: FC<Props> = ({ labelStatus, disabled, submit }) => {
   return (
-    <Button
-      onClick={(e) => {
-        e.preventDefault()
-        submit
-      }}
-      disabled={disabled}
-    >
-      ログイン
-    </Button>
+    <>
+      <Button
+        disabled={disabled}
+        onClick={(e) => {
+          e.preventDefault()
+          submit
+        }}
+      >
+        {getLabelName(labelStatus)}
+      </Button>
+    </>
   )
 }
 
@@ -33,7 +36,7 @@ const Button = styled.button`
   text-align: center;
   color: #fff;
   border-radius: 10px;
-  margin: 20px auto;
+  margin: 40px auto;
 
   &:hover {
     box-shadow: -2px -2px 5px white, 2px 2px 5px black;

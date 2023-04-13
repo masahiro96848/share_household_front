@@ -8,7 +8,7 @@ import { useAuthContext } from '@/contexts/AuthContext'
 import { useAuth } from '@/hooks/useAuth'
 import { EventType } from '@/interfaces/Event'
 import { UserType } from '@/interfaces/User'
-import { LinkStatus } from '@/utils/constants'
+import { LinkStatus, LabelName } from '@/utils/constants'
 
 export const LoginTemplate: FC = () => {
   const router = useRouter()
@@ -55,7 +55,7 @@ export const LoginTemplate: FC = () => {
   return (
     <AuthForm>
       <LoginForm
-        labelStatus={LinkStatus.LOGIN}
+        buttonLabelStatus={LinkStatus.LOGIN}
         email={email}
         password={password}
         changeEmail={handleChangeEmail}

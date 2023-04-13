@@ -1,15 +1,19 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
 import { EventType } from '@/interfaces/Event'
-import { getLabelName } from '@/utils/buttonLabel'
+import { getButtonLabelName } from '@/utils/buttonLabel'
 
 export type Props = {
-  labelStatus: string
+  buttonLabelStatus: string
   disabled?: boolean
   submit: EventType['onSubmit']
 }
 
-export const SubmitButton: FC<Props> = ({ labelStatus, disabled, submit }) => {
+export const SubmitButton: FC<Props> = ({
+  buttonLabelStatus,
+  disabled,
+  submit,
+}) => {
   return (
     <>
       <Button
@@ -19,7 +23,7 @@ export const SubmitButton: FC<Props> = ({ labelStatus, disabled, submit }) => {
           submit
         }}
       >
-        {getLabelName(labelStatus)}
+        {getButtonLabelName(buttonLabelStatus)}
       </Button>
     </>
   )

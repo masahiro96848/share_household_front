@@ -15,18 +15,18 @@ import { InputForm } from '@/components/atoms/input/InputForm'
 import { EventType } from '@/interfaces/Event'
 
 export type Props = {
-  labelStatus: string
   email: string
   password: string
+  buttonLabelStatus: string
   changeEmail: EventType['onChangeInput']
   changePassword: EventType['onChangeInput']
   submit: EventType['onSubmit']
 }
 
 export const LoginForm: FC<Props> = ({
-  labelStatus,
   email,
   password,
+  buttonLabelStatus,
   changeEmail,
   changePassword,
   submit,
@@ -37,6 +37,7 @@ export const LoginForm: FC<Props> = ({
       <InputForm
         type="email"
         value={email}
+        comment="メールアドレス"
         onChange={(event) => {
           return changeEmail(event)
         }}
@@ -44,11 +45,15 @@ export const LoginForm: FC<Props> = ({
       <InputForm
         type="password"
         value={password}
+        comment="パスワード"
         onChange={(event) => {
           return changePassword(event)
         }}
       />
-      <SubmitButton labelStatus={labelStatus} submit={() => submit} />
+      <SubmitButton
+        buttonLabelStatus={buttonLabelStatus}
+        submit={() => submit}
+      />
     </Form>
   )
 }
@@ -60,4 +65,8 @@ const Form = styled.form`
   input[type='password'] {
     margin-top: 40px;
   }
+`
+
+const AuthForm = styled.div`
+  text-align: center;
 `

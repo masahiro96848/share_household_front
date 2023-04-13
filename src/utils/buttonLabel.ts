@@ -3,7 +3,7 @@ import { LinkStatus } from '@/utils/constants'
 /**
  * ボタンラベルの名前
  */
-export const getLabelName = (status: string | undefined): string => {
+export const getButtonLabelName = (status: string | undefined): string => {
   switch (status) {
     case LinkStatus.LOGIN:
       return 'ログイン'

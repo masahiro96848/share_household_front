@@ -6,3 +6,12 @@ export enum LinkStatus {
   REGISTER = 'register',
   LOGIN = 'login',
 }
+
+/**
+ * フォームのラベル
+ */
+export enum LabelName {
+  EMAIL = 'email',
+  PASSWORD = 'password',
+  PASSWORD_CONFIRM = 'password_confirm',
+}

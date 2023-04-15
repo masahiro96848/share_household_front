@@ -17,6 +17,7 @@ export const SubmitButton: FC<Props> = ({
   return (
     <>
       <Button
+        type="submit"
         disabled={disabled}
         onClick={(e) => {
           e.preventDefault()
@@ -35,16 +36,17 @@ const Button = styled.button`
   display: block;
   height: 50px;
   line-height: 50px;
+  border: none;
   font-size: 1.25em;
   font-weight: bold;
   text-align: center;
   color: #fff;
-
+  background-color: orange;
   border-radius: 10px;
-  margin: 40px auto;
 
   &:hover {
     box-shadow: -2px -2px 5px white, 2px 2px 5px black;
+    transition: 0.3s;
   }
 
   &:active {

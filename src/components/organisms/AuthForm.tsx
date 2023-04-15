@@ -22,6 +22,6 @@ const FormArea = styled.div`
   min-height: 400px;
   width: 50%;
   border-radius: 20px;
-  background: #fbfbfb;
+  background-color: #ffffff;
   margin: 0 auto;
 `

@@ -13,14 +13,10 @@ const queryClient = new QueryClient({
   },
 })
 
-function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{ colorScheme: 'light' }}
-      >
+      <MantineProvider withNormalizeCSS theme={{ colorScheme: 'light' }}>
         <AuthProvider>
           <Component {...pageProps} />
         </AuthProvider>
@@ -28,5 +24,3 @@ function MyApp({ Component, pageProps }: AppProps) {
     </QueryClientProvider>
   )
 }
-
-export default MyApp

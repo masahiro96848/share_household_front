@@ -63,7 +63,10 @@ const Form = styled.form`
   padding: 40px 50px;
   border-bottom: 1px solid #dddbdb;
   input[type='password'] {
-    margin-top: 40px;
+    margin-top: 60px;
+  }
+  button[type='submit'] {
+    margin: 60px auto;
   }
 `
 

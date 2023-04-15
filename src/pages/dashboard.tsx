@@ -2,7 +2,6 @@ import { useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import { Layout } from '@/components/Layout'
 import { useAuth } from '@/hooks/useAuth'
 
 const Dashboard: NextPage = () => {
@@ -15,10 +14,10 @@ const Dashboard: NextPage = () => {
   }
 
   return (
-    <Layout title="dashboard">
+    <div>
       <p>{user?.email}</p>
       <p>テスト</p>
-    </Layout>
+    </div>
   )
 }
 

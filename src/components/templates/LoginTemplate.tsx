@@ -1,25 +1,20 @@
-import {
-  Anchor,
-  TextInput,
-  Button,
-  Group,
-  PasswordInput,
-  Alert,
-} from '@mantine/core'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useState, useCallback, FC } from 'react'
-import { Layout } from '../Layout'
+import React, { FC, useState, useCallback } from 'react'
 import { loginApi } from '@/api/authApi'
+import { LoginForm } from '@/components/molecules/LoginForm'
+import { AuthForm } from '@/components/organisms/AuthForm'
 import { NAVIGATION_LIST, NAVIGATION_PATH } from '@/constants/navigation'
 import { useAuthContext } from '@/contexts/AuthContext'
+import { useAuth } from '@/hooks/useAuth'
 import { EventType } from '@/interfaces/Event'
 import { UserType } from '@/interfaces/User'
+import { LinkStatus, LabelName } from '@/utils/constants'
 
-export const LoginTemplate = () => {
+export const LoginTemplate: FC = () => {
   const router = useRouter()
-  const [email, setEmail] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
+  const { login } = useAuth()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   /**
    * email更新処理
@@ -28,6 +23,7 @@ export const LoginTemplate = () => {
     (event) => setEmail(event.target.value),
     [],
   )
+
   /**
    * password更新処理
    */
@@ -48,36 +44,24 @@ export const LoginTemplate = () => {
         return
       }
       if (res?.data?.user) {
-        res.data.user
+        login(res.data.user)
         localStorage.setItem('access_token', res.data.accessToken)
         router.push(NAVIGATION_PATH.DASHBOARD)
       }
     },
-    [email, password, router],
+    [email, password, login, router],
   )
 
   return (
-    <Layout title="auth">
-      <form onSubmit={handleLogin}>
-        <TextInput
-          mt="md"
-          id="email"
-          value={email}
-          placeholder="example@gmail.com"
-          onChange={handleChangeEmail}
-        />
-        <PasswordInput
-          mt="md"
-          id="password"
-          value={password}
-          placeholder="password"
-          description="Must be min 5 char"
-          onChange={handleChangePassword}
-        />
-        <Button type="submit" color="cyan">
-          ログイン
-        </Button>
-      </form>
-    </Layout>
+    <AuthForm>
+      <LoginForm
+        buttonLabelStatus={LinkStatus.LOGIN}
+        email={email}
+        password={password}
+        changeEmail={handleChangeEmail}
+        changePassword={handleChangePassword}
+        submit={handleLogin}
+      ></LoginForm>
+    </AuthForm>
   )
 }

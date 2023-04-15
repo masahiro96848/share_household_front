@@ -15,7 +15,7 @@ export const AuthForm: FC<{ children: ReactNode }> = ({ children }) => {
 
 const AuthFormArea = styled.div`
   width: 100%;
-  padding-top: 100px;
+  padding-top: 50px;
 `
 
 const FormArea = styled.div`

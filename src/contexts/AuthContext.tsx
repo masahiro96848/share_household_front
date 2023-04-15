@@ -1,4 +1,5 @@
 import { FC, ReactNode, useContext, createContext } from 'react'
+import { LayoutTemplate } from '@/components/templates/common/LayoutTemplate'
 import { useAuth } from '@/hooks/useAuth'
 import { UserType } from '@/interfaces/User'
 
@@ -27,7 +28,7 @@ export const AuthProvider: FC<Props> = ({ children }) => {
         signOut,
       }}
     >
-      {children}
+      <LayoutTemplate>{children}</LayoutTemplate>
     </AuthContext.Provider>
   )
 }

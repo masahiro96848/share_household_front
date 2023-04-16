@@ -1,7 +1,7 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react'
 import React from 'react'
 import { SubmitButton } from './SubmitButton'
-import { LinkStatus } from '@/utils/constants'
+import { LinkStatus } from '@/utils/constants/linkStatus'
 
 export default {
   title: 'atoms/Button-submit',

@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router'
 import { useState, useCallback, useEffect } from 'react'
 import { authenticationApi } from '@/api/authApi'
-import { NAVIGATION_LIST, NAVIGATION_PATH } from '@/constants/navigation'
 import { UserType } from '@/interfaces/User'
+import { NAVIGATION_LIST, NAVIGATION_PATH } from '@/utils/constants/navigation'
 
 export const useAuth = () => {
   const router = useRouter()

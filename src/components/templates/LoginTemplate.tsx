@@ -10,6 +10,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState, useCallback, FC } from 'react'
 import { loginApi } from '@/api/authApi'
+import { LoginForm } from '@/components/molecules/LoginForm'
+import { AuthForm } from '@/components/organisms/AuthForm'
 import { useAuthContext } from '@/contexts/AuthContext'
 import { EventType } from '@/interfaces/Event'
 import { UserType } from '@/interfaces/User'
@@ -62,25 +64,15 @@ export const LoginTemplate: FC = () => {
   )
 
   return (
-    <form onSubmit={handleLogin}>
-      <TextInput
-        mt="md"
-        id="email"
-        value={email}
-        placeholder="example@gmail.com"
-        onChange={handleChangeEmail}
-      />
-      <PasswordInput
-        mt="md"
-        id="password"
-        value={password}
-        placeholder="password"
-        description="Must be min 5 char"
-        onChange={handleChangePassword}
-      />
-      <Button type="submit" color="cyan">
-        ログイン
-      </Button>
-    </form>
+    <AuthForm>
+      <LoginForm
+        email={email}
+        password={password}
+        buttonLabelStatus="ログイン"
+        changeEmail={handleChangeEmail}
+        changePassword={handleChangePassword}
+        submit={handleLogin}
+      ></LoginForm>
+    </AuthForm>
   )
 }

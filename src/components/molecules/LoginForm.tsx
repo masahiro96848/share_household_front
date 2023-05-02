@@ -32,29 +32,24 @@ export const LoginForm: FC<Props> = ({
   submit,
 }) => {
   return (
-    <Form>
-      <FormTitle title="ログイン" />
-      <InputForm
-        type="email"
+    <form onSubmit={submit}>
+      <TextInput
+        mt="md"
+        id="email"
         value={email}
-        comment="メールアドレス"
-        onChange={(event) => {
-          return changeEmail(event)
-        }}
+        placeholder="example@gmail.com"
+        onChange={changeEmail}
       />
-      <InputForm
-        type="password"
+      <PasswordInput
+        mt="md"
+        id="password"
         value={password}
-        comment="パスワード"
-        onChange={(event) => {
-          return changePassword(event)
-        }}
+        placeholder="password"
+        description="Must be min 5 char"
+        onChange={changePassword}
       />
-      <SubmitButton
-        buttonLabelStatus={buttonLabelStatus}
-        submit={() => submit}
-      />
-    </Form>
+      <SubmitButton buttonLabelStatus={buttonLabelStatus} />
+    </form>
   )
 }
 

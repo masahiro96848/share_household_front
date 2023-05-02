@@ -6,24 +6,12 @@ import { getButtonLabelName } from '@/utils/buttonLabel'
 export type Props = {
   buttonLabelStatus: string
   disabled?: boolean
-  submit: EventType['onSubmit']
 }
 
-export const SubmitButton: FC<Props> = ({
-  buttonLabelStatus,
-  disabled,
-  submit,
-}) => {
+export const SubmitButton: FC<Props> = ({ buttonLabelStatus, disabled }) => {
   return (
     <>
-      <Button
-        type="submit"
-        disabled={disabled}
-        onClick={(e) => {
-          e.preventDefault()
-          submit
-        }}
-      >
+      <Button type="submit" disabled={disabled}>
         {getButtonLabelName(buttonLabelStatus)}
       </Button>
     </>

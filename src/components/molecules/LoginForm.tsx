@@ -32,39 +32,33 @@ export const LoginForm: FC<Props> = ({
   submit,
 }) => {
   return (
-    <form onSubmit={submit}>
+    <Form onSubmit={submit}>
+      <FormTitle title="ログイン" />
       <TextInput
+        size="lg"
         mt="md"
         id="email"
         value={email}
         placeholder="example@gmail.com"
+        label="Email"
         onChange={changeEmail}
       />
       <PasswordInput
-        mt="md"
+        size="lg"
+        mt="lg"
         id="password"
         value={password}
         placeholder="password"
-        description="Must be min 5 char"
+        label="Password"
         onChange={changePassword}
       />
       <SubmitButton buttonLabelStatus={buttonLabelStatus} />
-    </form>
+    </Form>
   )
 }
 
 const Form = styled.form`
-  text-align: center;
   padding: 40px 50px;
-  border-bottom: 1px solid #dddbdb;
-  input[type='password'] {
-    margin-top: 60px;
-  }
-  button[type='submit'] {
-    margin: 60px auto;
-  }
-`
-
-const AuthForm = styled.div`
-  text-align: center;
+  /* border-bottom: 1px solid #dddbdb; */
+  margin: 0 auto;
 `

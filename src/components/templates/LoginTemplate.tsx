@@ -1,20 +1,32 @@
+import {
+  Anchor,
+  TextInput,
+  Button,
+  Group,
+  PasswordInput,
+  Alert,
+} from '@mantine/core'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { FC, useState, useCallback } from 'react'
+import { useState, useCallback, FC } from 'react'
 import { loginApi } from '@/api/authApi'
 import { LoginForm } from '@/components/molecules/LoginForm'
 import { AuthForm } from '@/components/organisms/AuthForm'
-import { NAVIGATION_LIST, NAVIGATION_PATH } from '@/constants/navigation'
 import { useAuthContext } from '@/contexts/AuthContext'
-import { useAuth } from '@/hooks/useAuth'
 import { EventType } from '@/interfaces/Event'
 import { UserType } from '@/interfaces/User'
-import { LinkStatus, LabelName } from '@/utils/constants'
+import { LinkStatus } from '@/utils/constants/linkStatus'
+import { NAVIGATION_PATH } from '@/utils/constants/navigation'
+
+type Params = {
+  login: (user: UserType) => Promise<void>
+}
 
 export const LoginTemplate: FC = () => {
   const router = useRouter()
-  const { login } = useAuth()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
+  const { login } = useAuthContext()
 
   /**
    * email更新処理
@@ -55,9 +67,9 @@ export const LoginTemplate: FC = () => {
   return (
     <AuthForm>
       <LoginForm
-        buttonLabelStatus={LinkStatus.LOGIN}
         email={email}
         password={password}
+        buttonLabelStatus={LinkStatus.LOGIN}
         changeEmail={handleChangeEmail}
         changePassword={handleChangePassword}
         submit={handleLogin}

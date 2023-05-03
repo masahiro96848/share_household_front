@@ -1,4 +1,4 @@
-import { LabelName } from '@/utils/constants'
+import { LabelName } from '@/utils/constants/labelName'
 
 /**
  * フォームラベルの名前

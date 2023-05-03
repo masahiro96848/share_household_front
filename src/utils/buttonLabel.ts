@@ -1,4 +1,4 @@
-import { LinkStatus } from '@/utils/constants'
+import { LinkStatus } from '@/utils/constants/linkStatus'
 
 /**
  * ボタンラベルの名前

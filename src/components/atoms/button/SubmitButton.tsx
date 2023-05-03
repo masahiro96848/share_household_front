@@ -6,24 +6,12 @@ import { getButtonLabelName } from '@/utils/buttonLabel'
 export type Props = {
   buttonLabelStatus: string
   disabled?: boolean
-  submit: EventType['onSubmit']
 }
 
-export const SubmitButton: FC<Props> = ({
-  buttonLabelStatus,
-  disabled,
-  submit,
-}) => {
+export const SubmitButton: FC<Props> = ({ buttonLabelStatus, disabled }) => {
   return (
     <>
-      <Button
-        type="submit"
-        disabled={disabled}
-        onClick={(e) => {
-          e.preventDefault()
-          submit
-        }}
-      >
+      <Button type="submit" disabled={disabled}>
         {getButtonLabelName(buttonLabelStatus)}
       </Button>
     </>
@@ -43,6 +31,8 @@ const Button = styled.button`
   color: #fff;
   background-color: orange;
   border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 32px;
 
   &:hover {
     box-shadow: -2px -2px 5px white, 2px 2px 5px black;

@@ -20,7 +20,7 @@ type StyleProps = {
 }
 
 const TitleArea = styled.div`
-  ${({ space }: StyleProps) => getPadding(space)}
+  /* ${({ space }: StyleProps) => getPadding(space)} */
   text-align: center;
   h3 {
     color: black;

@@ -15,6 +15,7 @@ import { AuthForm } from '@/components/organisms/AuthForm'
 import { useAuthContext } from '@/contexts/AuthContext'
 import { EventType } from '@/interfaces/Event'
 import { UserType } from '@/interfaces/User'
+import { LinkStatus } from '@/utils/constants/linkStatus'
 import { NAVIGATION_PATH } from '@/utils/constants/navigation'
 
 type Params = {
@@ -68,7 +69,7 @@ export const LoginTemplate: FC = () => {
       <LoginForm
         email={email}
         password={password}
-        buttonLabelStatus="ログイン"
+        buttonLabelStatus={LinkStatus.LOGIN}
         changeEmail={handleChangeEmail}
         changePassword={handleChangePassword}
         submit={handleLogin}
